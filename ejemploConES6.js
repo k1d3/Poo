@@ -80,17 +80,17 @@ let contador2 = 0;
 let contador3 = 0;
   } 
 contar1(){ 
-  this.contador1++;
+  this.contador1=this.contador1++;
   
  }
  contar2(){ 
   
-  this.contador2++;
+  this.contador2=this.contador2++;
   
  }
  contar3(){ 
   
-  this.constador3++;
+  this.contador3=this.contador3++;
  }
  restaurar1(){
   this.contador1=0;
@@ -110,7 +110,7 @@ const pelea = setInterval(function atacking() {
     asesino.arteNinja()
     console.log("Se activó la Arte Ninja al estar al borde de la muerte, tu vida se recupera en 40 puntos.");
   }
-  if (conteo.contador1 === 6) {
+  if (conteo.contar1 === 6) {
     asesino.ataqueFantasma(mob);
     console.log("Asesino atacó con Ataque Fantasma");
     contador1 = 0;
@@ -120,7 +120,8 @@ const pelea = setInterval(function atacking() {
     console.log(`Has ganado la batalla`);
     let progreso=confirm("En hora buena, quieres guardar tu progreso?")
     if (progreso){
-      //llamar a la db y guardar el objeto
+      //llamar a la db y guardar el objeto!!!!!!!!!!!!
+      //promero generar un menú con los pj de la db y luego seleccionar uno para traer y jugar
     }
     clearInterval(pelea);
     return;
