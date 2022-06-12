@@ -1,33 +1,39 @@
 class EstructuraBase {
-  constructor(critico, hp, ataque, dex, def) {
-    //en el constructor ponemos las propiedades
-    this.critico = critico;
-    this.hp = hp;
-    this.ataque = ataque;
-    this.dex = dex;
-    this.def = def;
+  constructor(critico, hp, ataque, dex, def,exp,lvl) {
+   
+    #critico #hp #ataque #dex #def #exp #lvl
+    this.#critico = critico;
+    this.#hp = hp;
+    this.#ataque = ataque;
+    this.#dex = dex;
+    this.#def = def;
+    this.#exp=exp;
+    this.#lvl=1;
   }
   //fuera del constructor ponemos los métodos
   atacar(enemigo) {
-    enemigo.hp -= this.ataque;
+    enemigo.#hp -= this.#ataque;
+  }
+  #exp(this.#exp){
+    if(exp>200)lvl++
   }
 }
 
 class Asesino extends EstructuraBase {
-  constructor(critico, hp, ataque, dex, def, mp) {
-    super(critico, hp, ataque, dex, def);
-    this.mp = mp;
+  constructor(#critico, #hp, #ataque, #dex, #def, #mp) {
+    super(#critico, #hp, #ataque, #dex, #def);
+    this.#mp = #mp;
   }
   ataqueFantasma(enemigo) {
-    enemigo.hp -= this.ataque * 5;
+    enemigo.#hp -= this.#ataque * 3;
   }
 }
 class Mob extends EstructuraBase {
-  constructor(critico, hp, ataque, dex, def) {
-    super(critico, hp, ataque, dex, def);
+  constructor(#critico, #hp, #ataque, #dex, #def) {
+    super(#critico, #hp, #ataque, #dex, #def);
   }
   golpeDeRoca(enemigo) {
-    enemigo.hp -= this.ataque + this.def;
+    enemigo.#hp -= this.#ataque + this.#def;
   }
 }
 
@@ -37,6 +43,7 @@ const mob = new Mob(30, 700, 6, 7, 8);
 let contador1 = 0;
 let contador2 = 0;
 const pelea = setInterval(function atacking() {
+  console.clear()
   if (contador1 === 6) {
     asesino.ataqueFantasma(mob);
     console.log("Asesino atacó con Ataque Fantasma");
